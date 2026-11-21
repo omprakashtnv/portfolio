@@ -1,0 +1,37 @@
+# dependencies
+/node_modules/**
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env*
+
+# vercel
+.vercel
+cache
+# The application route is source code, not a generated cache directory.
+!app/api/cache/
+!app/api/cache/revalidate/
+!app/api/cache/revalidate/route.ts
+!app/api/cache/revalidate/route.test.ts
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+# Sentry Config File
+.env.sentry-build-plugin
+
+# Local agent knowledge
+/.graphify/
+/AGENTS.md
