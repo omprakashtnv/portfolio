@@ -1,6 +1,4 @@
-# Om_Prakash_Gupta Neo City 3D Portfolio — Starter
-
-Next.js + TypeScript + React Three Fiber starter inspired by the approved Neo City light/dark portfolio concepts.
+# Om_Prakash_Gupta Portfolio
 
 ## Run locally
 
@@ -24,5 +22,3 @@ Open http://localhost:3000
 - Replace conceptual project visuals with authorized screenshots
 - Verify all experience claims and project details
 - Test on mobile and optimize WebGL performance
-
-This is a working-code starter, not a pixel-perfect reproduction of the reference artwork.
