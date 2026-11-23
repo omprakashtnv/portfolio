@@ -47,7 +47,7 @@ const projects: Project[] = [
       "RAG",
     ],
     className: "lei",
-    image: "/projects/lei.png",
+    image: "/portfolio/projects/lei.png",
     liveUrl: "",
     githubUrl: "",
   },
@@ -74,7 +74,7 @@ const projects: Project[] = [
       "Unit Testing",
     ],
     className: "lmexchange",
-    image: "/projects/lmexchange.png",
+    image: "/portfolio/projects/lmexchange.png",
     liveUrl: "",
     githubUrl: "",
   },
@@ -100,7 +100,7 @@ const projects: Project[] = [
     ],
     // Verify that each technology was used in this project.
     className: "education",
-    image: "/projects/education.png",
+    image: "/portfolio/projects/education.png",
     liveUrl: "",
     githubUrl: "",
   },
@@ -125,7 +125,7 @@ const projects: Project[] = [
     ],
     // Confirm MongoDB/GraphQL versus MySQL/REST for this project.
     className: "ecommerce",
-    image: "/projects/ecommerce.png",
+    image: "/portfolio/projects/ecommerce.png",
     liveUrl: "",
     githubUrl: "",
   },
@@ -153,7 +153,7 @@ const projects: Project[] = [
       "RAG",
     ],
     className: "docusense",
-    image: "/projects/docusense.png",
+    image: "/portfolio/projects/docusense.png",
     liveUrl: "",
     githubUrl: "",
   },
@@ -181,7 +181,7 @@ const projects: Project[] = [
       "Security Auditing",
     ],
     className: "sentinel",
-    image: "/projects/sentinel.png",
+    image: "/portfolio/projects/sentinel.png",
     liveUrl: "",
     githubUrl: "",
   },
@@ -377,6 +377,8 @@ export default function Home() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  const BASE_PATH = "/portfolio";
+
   return (
     <main className="portfolio">
       {/* NAVIGATION */}
@@ -413,7 +415,7 @@ export default function Home() {
       <section className="hero hero-simple" id="home">
         <div className="hero-portrait">
           <div className="about-photo-ring">
-            <img src="/about/profile.png" alt="Om Prakash Gupta" className="about-photo" />
+            <img src={`${BASE_PATH}/about/profile.png`} alt="Om Prakash Gupta" className="about-photo" />
           </div>
           <div className="about-socials" aria-label="Social profiles">
             <a href="https://github.com/omprakashtnv" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub size={20} /></a>
@@ -443,7 +445,7 @@ export default function Home() {
             </a>
 
             <a
-              href="/resume.pdf"
+              href="/portfolio/resume.pdf"
               download="Omprakash_Gupta_3+Yr_Resume.pdf"
               className="outline resume-button"
             >
