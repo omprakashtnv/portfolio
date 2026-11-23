@@ -3,36 +3,7 @@
 
 import { useEffect, useState } from "react";
 
-import { FaGithub, FaLinkedinIn, FaFileAlt, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, } from "react-icons/fa";
-
-const technologies = [
-  {
-    title: "Frontend",
-    subtitle: "React · Next.js",
-    icon: "⚛",
-    className: "frontend",
-  },
-  {
-    title: "Backend",
-    subtitle: "Node.js · Express",
-    icon: "⬡",
-    className: "backend",
-  },
-  {
-    title: "AWS Cloud",
-    subtitle: "Lambda · API GW",
-    icon: "☁",
-    className: "aws",
-  },
-  {
-    title: "AI / RAG",
-    subtitle: "LangChain · pgvector",
-    icon: "✧",
-    className: "ai",
-  },
-];
-
-
+import { FaGithub, FaLinkedinIn, FaFileAlt, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaPaperPlane, FaDownload, FaExternalLinkAlt, } from "react-icons/fa";
 
 type Project = {
   title: string;
@@ -183,8 +154,8 @@ const projects: Project[] = [
     ],
     className: "docusense",
     image: "/projects/docusense.png",
-    liveUrl: "https://example.com/docusense-demo",
-    githubUrl: "https://github.com/YOUR_USERNAME/docusense-ai",
+    liveUrl: "",
+    githubUrl: "",
   },
   {
     title: "SentinelAI",
@@ -211,8 +182,8 @@ const projects: Project[] = [
     ],
     className: "sentinel",
     image: "/projects/sentinel.png",
-    liveUrl: "https://example.com/sentinel-demo",
-    githubUrl: "https://github.com/YOUR_USERNAME/sentinel-ai",
+    liveUrl: "",
+    githubUrl: "",
   },
 ];
 
@@ -264,9 +235,9 @@ const experiences = [
       "Node.js",
       "REST APIs",
       "GraphQL",
-      "Unit Testing", 
-            "Git"
-   
+      "Unit Testing",
+      "Git"
+
     ],
   },
   {
@@ -313,7 +284,7 @@ const experiences = [
       "Node.js",
       "Express",
       "MongoDB",
-            "Git",
+      "Git",
 
       "DSA"
     ],
@@ -364,47 +335,33 @@ const professionalSkills = [
 
 
 
-const codeLines = [
-  "import React from 'react';",
-  "",
-  "const Developer = () => {",
-  "  return (",
-  "    <Portfolio",
-  '      role="Full Stack Developer"',
-  '      skills={["React", "Node.js",',
-  '        "AWS", "AI/RAG"]}',
-  "    />",
-  "  );",
-  "};",
-];
-
 export default function Home() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
-const CONTACT_EMAIL = "omprakash1997242@gmail.com";
+  const CONTACT_EMAIL = "omprakash1997242@gmail.com";
 
-const [contactForm, setContactForm] = useState({
-  name: "",
-  email: "",
-  message: "",
-});
+  const [contactForm, setContactForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-const handleContactSubmit = (e:any) => {
-  e.preventDefault();
+  const handleContactSubmit = (e: any) => {
+    e.preventDefault();
 
-  const subject = encodeURIComponent(
-    `Portfolio Inquiry from ${contactForm.name}`
-  );
+    const subject = encodeURIComponent(
+      `Portfolio Inquiry from ${contactForm.name}`
+    );
 
-  const body = encodeURIComponent(
-    `Name: ${contactForm.name}\n` +
-    `Email: ${contactForm.email}\n\n` +
-    `Message:\n${contactForm.message}`
-  );
+    const body = encodeURIComponent(
+      `Name: ${contactForm.name}\n` +
+      `Email: ${contactForm.email}\n\n` +
+      `Message:\n${contactForm.message}`
+    );
 
-  window.location.href =
-    `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-};
+    window.location.href =
+      `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  };
 
 
   useEffect(() => {
@@ -426,7 +383,7 @@ const handleContactSubmit = (e:any) => {
       <header className="site-header">
         <a href="#home" className="logo">
           <span className="logo-icon">&lt;/&gt;</span>
-          <span>OPG.</span>
+          <span>OM</span>
         </a>
 
         <nav className="navigation">
@@ -452,135 +409,61 @@ const handleContactSubmit = (e:any) => {
         </button>
       </header>
 
-      {/* HERO */}
-      <section className="hero" id="home">
-        <div className="copy">
-          <div className="status">
-            <span className="status-dot">●</span>
-            OPEN TO OPPORTUNITIES
+      {/* HOME + ABOUT */}
+      <section className="hero hero-simple" id="home">
+        <div className="hero-portrait">
+          <div className="about-photo-ring">
+            <img src="/about/profile.png" alt="Om Prakash Gupta" className="about-photo" />
           </div>
-
+          <div className="about-socials" aria-label="Social profiles">
+            <a href="https://github.com/omprakashtnv" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub size={20} /></a>
+            <a href="https://www.linkedin.com/in/om-gupta-coding/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn size={20} /></a>
+            <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Email"><FaEnvelope size={20} /></a>
+          </div>
+        </div>
+        <div className="copy" id="about">
+          <div className="status"><span className="status-dot">●</span> OPEN TO OPPORTUNITIES</div>
           <p className="kicker">HELLO, I'M</p>
-
-          <h1>
-            Om Prakash <span>Gupta.</span>
-          </h1>
-
-          <h2 className="role">
-            Full Stack Developer
-            <span className="cursor"> |</span>
-          </h2>
-
+          <h1>Om Prakash <span>Gupta.</span></h1>
+          <h2 className="role">Full Stack Developer &amp; Software Engineer</h2>
           <p className="description">
-            I build scalable, secure and intelligent web
-            solutions with modern technology, cloud and AI.
+            I'm a Full Stack Developer with 3+ years of experience building
+            enterprise SaaS platforms, FinTech applications and AI-powered products.
+            I work with React, Next.js, TypeScript, Node.js, PostgreSQL and AWS,
+            with hands-on experience in microservices, secure APIs and RAG.
           </p>
-
+          <p className="hero-impact">
+            At LEI International, I contributed to an enterprise platform serving
+            26+ countries and worked on 5 microservices, developing 3 personally.
+          </p>
           <div className="actions">
-            <a href="#projects" className="primary">
-              View Projects ↗
+            <a href="#projects" className="primary" style={{ gap: "8px" }}>
+              <FaExternalLinkAlt />
+              View Projects
             </a>
 
             <a
-              href="#contact"
+              href="/resume.pdf"
+              download="Omprakash_Gupta_3+Yr_Resume.pdf"
               className="outline resume-button"
             >
-              ↓ Download Resume
+              <FaDownload />
+              Download Resume
             </a>
-
-            <a href="#contact" className="outline">
-              ✉ Contact Me
-            </a>
+            <a href="#contact" className="outline">Contact Me</a>
           </div>
-
           <div className="stats">
-            <div>
-              <strong>3.5+</strong>
-              <small>Years Experience</small>
-            </div>
-
-            <div>
-              <strong>05</strong>
-              <small>Microservices</small>
-            </div>
-
-            <div>
-              <strong>AWS</strong>
-              <small>Cloud & Serverless</small>
-            </div>
-
-            <div>
-              <strong>AI</strong>
-              <small>GenAI & RAG</small>
-            </div>
-          </div>
-        </div>
-
-        {/* RIGHT HERO VISUAL */}
-        <div className="hero-visual">
-          <div className="visual-glow" />
-
-          {/* Decorative orbit */}
-          <div className="orbit-ring" />
-
-          {/* Layered glass panels */}
-          <div className="glass-layer layer-one" />
-          <div className="glass-layer layer-two" />
-          <div className="glass-layer layer-three" />
-
-          {/* Code Terminal */}
-          <div className="terminal-window">
-            <div className="terminal-header">
-              <div className="window-dots">
-                <span />
-                <span />
-                <span />
-              </div>
-
-              <span className="terminal-title">
-                ⚛ portfolio.tsx
-              </span>
-            </div>
-
-            <div className="terminal-body">
-              {codeLines.map((line, index) => (
-                <div className="code-line" key={index}>
-                  <span className="line-number">
-                    {index + 1}
-                  </span>
-
-                  <code>{line || "\u00A0"}</code>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Floating cards */}
-          <div className="tech-orbit">
-            {technologies.map((tech) => (
-              <div
-                key={tech.title}
-                className={`tech-card ${tech.className}`}
-              >
-                <div className="tech-icon">
-                  {tech.icon}
-                </div>
-
-                <strong>{tech.title}</strong>
-                <small>{tech.subtitle}</small>
-              </div>
-            ))}
+            <div><strong>3+</strong><small>Years Experience</small></div>
+            <div><strong>05</strong><small>Microservices</small></div>
+            <div><strong>26+</strong><small>Countries Served</small></div>
+            <div><strong>AI</strong><small>GenAI &amp; RAG</small></div>
           </div>
         </div>
       </section>
 
-      {/* BACKGROUND DECORATION */}
-      <div className="neon-wave" aria-hidden="true" />
-      <div className="decorative-dots" aria-hidden="true" />
-
       {/* FEATURED PROJECTS */}
       <section className="projects" id="projects">
-        <h2><span className="dash">—</span> Featured Projects</h2>
+        <h2><span className="highlight">Featured</span>{" "}Projects</h2>
         <p className="projects-intro">Real-world engineering experience and independently built AI applications.</p>
 
         {([
@@ -625,367 +508,307 @@ const handleContactSubmit = (e:any) => {
         ))}
       </section>
 
-      {/* ABOUT */}
-<section id="about" className="info about-section">
-  <div className="about-layout">
-    <div className="about-content">
-      <h2>
-        <span className="highlight">About</span> Me
-      </h2>
-
-      <p>
-        I'm a <strong>Full Stack Developer and Software Engineer</strong>{" "}
-        with <strong>3+ years of experience</strong> building
-        enterprise SaaS platforms, FinTech applications, and
-        AI-powered solutions.
-      </p>
-
-      <p>
-        I specialize in <strong>React.js, Next.js, Node.js,
-        TypeScript, PostgreSQL, MongoDB, and AWS</strong>.
-        My experience includes microservices, secure REST APIs,
-        cloud-based workflows, and third-party integrations.
-      </p>
-
-      <p>
-        At <strong>LEI International</strong>, I contributed to a
-        multi-tenant enterprise platform supporting operations
-        across <strong>26+ countries</strong>, working on
-        <strong> 5 microservices</strong>, including
-        <strong> 3 developed personally</strong>.
-      </p>
-
-      <p>
-        I also build AI-powered products using
-        <strong> LLMs, LangChain, RAG, embeddings, and vector search</strong>,
-        including DocuSense AI and SentinelAI.
-      </p>
-    </div>
-
-    <div className="about-profile">
-      <div className="about-photo-ring">
-        <img
-          src="/about/profile.png"
-          alt="Om Prakash Gupta"
-          className="about-photo"
-          loading="lazy"
-        />
-      </div>
-
-      <h3>Om Prakash Gupta</h3>
-      <p className="about-profile-role">
-        Full Stack Developer
-      </p>
-
-     
-<div className="about-socials">
-  <a
-    href="https://github.com/omprakashtnv"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub Profile"
-    title="GitHub"
-  >
-    <FaGithub size={21} />
-  </a>
-
-  <a
-    href="https://www.linkedin.com/in/om-gupta-coding/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn Profile"
-    title="LinkedIn"
-  >
-    <FaLinkedinIn size={21} />
-  </a>
-
-  <a
-    href="/resume.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="View Resume"
-    title="Resume"
-  >
-    <FaFileAlt size={21} />
-  </a>
-</div>
-
-    </div>
-  </div>
-</section>
-
 
 
       {/* EXPERIENCE */}
-   
-<section
-  id="experience"
-  className="info experience-section"
->
-  <h2>
-    <span className="highlight">Professional</span>{" "}
-    Experience
-  </h2>
 
-  <div className="experience-timeline">
-    {experiences.map((exp) => (
-      <div
-        className="experience-item"
-        key={exp.company}
+      <section
+        id="experience"
+        className="info experience-section"
       >
-        <div className="experience-dot" />
+        <h2>
+          <span className="highlight">Professional</span>{" "}
+          Experience
+        </h2>
 
-        <div className="experience-card">
-          <div className="experience-header">
-            <h3>
-              <span className="experience-role">
-                {exp.role}
-              </span>
+        <div className="experience-timeline">
+          {experiences.map((exp) => (
+            <div
+              className="experience-item"
+              key={exp.company}
+            >
+              <div className="experience-dot" />
 
-              <span className="experience-separator">
-                {" | "}
-              </span>
+              <div className="experience-card">
+                <div className="experience-header">
+                  <h3>
+                    <span className="experience-role">
+                      {exp.role}
+                    </span>
 
-              <span className="experience-company">
-                {exp.company}
-              </span>{" "}
+                    <span className="experience-separator">
+                      {" | "}
+                    </span>
 
-            
-{exp.type?.trim() && (
-  <span className="experience-company-type">
-    ({exp.type})
-  </span>
-)}
+                    <span className="experience-company">
+                      {exp.company}
+                    </span>{" "}
 
-            </h3>
-          </div>
 
-          <p className="experience-meta">
-            {exp.location}
-            <span className="experience-meta-separator">
-              {" | "}
-            </span>
-            {exp.duration}
-          </p>
+                    {exp.type?.trim() && (
+                      <span className="experience-company-type">
+                        ({exp.type})
+                      </span>
+                    )}
 
-          <ul className="experience-highlights">
-            {exp.highlights.map((highlight) => (
-              <li key={highlight}>
-                {highlight}
-              </li>
-            ))}
-          </ul>
+                  </h3>
+                </div>
 
-          <div className="experience-skills">
-            {exp.skills.map((skill) => (
-              <span key={skill}>
+                <p className="experience-meta">
+                  {exp.location}
+                  <span className="experience-meta-separator">
+                    {" | "}
+                  </span>
+                  {exp.duration}
+                </p>
+
+                <ul className="experience-highlights">
+                  {exp.highlights.map((highlight) => (
+                    <li key={highlight}>
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="experience-skills">
+                  {exp.skills.map((skill) => (
+                    <span key={skill}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+      {/* SKILLS */}
+
+      <section id="skills" className="info skills-section">
+        <h2>
+          <span className="highlight">Technical</span> Skills
+        </h2>
+
+        <div className="skills-grid">
+          {technicalSkills.map((category) => (
+            <div className="skill-card" key={category.title}>
+              <h3>{category.title}</h3>
+
+              <div className="skill-tags">
+                {category.skills.map((skill) => (
+                  <span className="skill-tag" key={skill}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="professional-skills">
+          <h2>
+            <span className="highlight">Soft Skills</span>
+            {" & Leadership"}
+          </h2>
+
+          <div className="skill-tags">
+            {professionalSkills.map((skill) => (
+              <span className="skill-tag" key={skill}>
                 {skill}
               </span>
             ))}
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
 
-      {/* SKILLS */}
-
-<section id="skills" className="info skills-section">
-  <h2>
-    <span className="highlight">Technical</span> Skills
-  </h2>
-
-  <div className="skills-grid">
-    {technicalSkills.map((category) => (
-      <div className="skill-card" key={category.title}>
-        <h3>{category.title}</h3>
-
-        <div className="skill-tags">
-          {category.skills.map((skill) => (
-            <span className="skill-tag" key={skill}>
-              {skill}
-            </span>
-          ))}
+      {/* EDUCATION */}
+      <section id="education" className="info education-section">
+        <h2><span className="highlight">Education</span></h2>
+        <div className="education-timeline">
+          <article className="education-card">
+            <span className="education-date">Sep 2024 – Sep 2025</span>
+            <div className="education-degree">Minor Course in Artificial Intelligence (AI)</div>
+            <p className="education-field">IIT Ropar</p>
+            <p className="education-university">Artificial Intelligence · Minor Course</p>
+          </article>
+          <article className="education-card">
+            <span className="education-date">July 2014 – Sep 2018</span>
+            <div className="education-degree">Bachelor of Technology (B.Tech)</div>
+            <p className="education-field">Electrical & Electronics Engineering</p>
+            <p className="education-university">Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow</p>
+          </article>
         </div>
-      </div>
-    ))}
-  </div>
-
-  <div className="professional-skills">
-    <h2>
-      <span className="highlight">Soft Skills</span>
-      {" & Leadership"}
-    </h2>
-
-    <div className="skill-tags">
-      {professionalSkills.map((skill) => (
-        <span className="skill-tag" key={skill}>
-          {skill}
-        </span>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* CONTACT */}
-    
-<section id="contact" className="info contact-section">
-  <div className="contact-heading">
-    <h2>
-      <span className="highlight">Get In</span> Touch
-    </h2>
 
-    <p>
-      Have a project in mind, a job opportunity, or just want
-      to connect? Feel free to reach out.
-    </p>
-  </div>
+      <section id="contact" className="info contact-section">
+        <div className="contact-heading">
+          <h2>
+            <span className="highlight">Get In</span> Touch
+          </h2>
 
-  <div className="contact-layout">
-    {/* LEFT: CONTACT DETAILS */}
-
-    <div className="contact-info">
-      <h3>Let's Work Together</h3>
-
-      <p className="contact-intro">
-        I'm open to Full Stack Developer, Backend Engineer,
-        and AI-powered application development opportunities.
-        Let's connect and build something meaningful.
-      </p>
-
-      <div className="contact-details">
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="contact-detail"
-        >
-          <span className="contact-detail-icon">
-            <FaEnvelope />
-          </span>
-
-          <span>
-            <strong>Email</strong>
-            <small>{CONTACT_EMAIL}</small>
-          </span>
-        </a>
-
-        <div className="contact-detail">
-          <span className="contact-detail-icon">
-            <FaMapMarkerAlt />
-          </span>
-
-          <span>
-            <strong>Location</strong>
-            <small>Lucknow, Uttar Pradesh, India</small>
-          </span>
+          <p>
+            Hiring for a Full Stack, Backend or Software Engineer role?
+            Let’s connect and discuss how I can contribute to your team.
+          </p>
         </div>
-      </div>
 
-      <h4>Connect With Me</h4>
+        <div className="contact-layout">
+          {/* LEFT: CONTACT DETAILS */}
 
-      <div className="contact-socials">
-        <a
-          href="https://github.com/omprakashtnv"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          title="GitHub"
-        >
-          <FaGithub />
-        </a>
+          <div className="contact-info">
+            <h3>Let's Work Together</h3>
 
-        <a
-          href="https://www.linkedin.com/in/om-gupta-coding/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          title="LinkedIn"
-        >
-          <FaLinkedinIn />
-        </a>
+            <p className="contact-intro">
+              I'm open to Full Stack Developer, Backend Engineer,
+              and AI-powered application development opportunities.
+              Let's connect and build something meaningful.
+            </p>
 
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          aria-label="Email"
-          title="Email"
-        >
-          <FaEnvelope />
-        </a>
-      </div>
-    </div>
+            <div className="contact-details">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="contact-detail"
+              >
+                <span className="contact-detail-icon">
+                  <FaEnvelope />
+                </span>
 
-    {/* RIGHT: CONTACT FORM */}
+                <span>
+                  <strong>Email</strong>
+                  <small>{CONTACT_EMAIL}</small>
+                </span>
+              </a>
 
-    <form
-      className="contact-form"
-      onSubmit={handleContactSubmit}
-    >
-      <h3>Send Me a Message</h3>
+              <a href="tel:+918115601041" className="contact-detail" aria-label="Call +91 81156 01041">
+                <span className="contact-detail-icon">
+                  <FaPhoneAlt />
+                </span>
+                <span>
+                  <strong>Phone</strong>
+                  <small>+91 81156 01041</small>
+                </span>
+              </a>
 
-      <div className="contact-field">
-        <label htmlFor="contact-name">Your Name</label>
-        <input
-          id="contact-name"
-          type="text"
-          placeholder="Enter your name"
-          value={contactForm.name}
-          onChange={(e) =>
-            setContactForm({
-              ...contactForm,
-              name: e.target.value,
-            })
-          }
-          required
-        />
-      </div>
+              <div className="contact-detail">
+                <span className="contact-detail-icon">
+                  <FaMapMarkerAlt />
+                </span>
 
-      <div className="contact-field">
-        <label htmlFor="contact-email">Email Address</label>
-        <input
-          id="contact-email"
-          type="email"
-          placeholder="Enter your email"
-          value={contactForm.email}
-          onChange={(e) =>
-            setContactForm({
-              ...contactForm,
-              email: e.target.value,
-            })
-          }
-          required
-        />
-      </div>
+                <span>
+                  <strong>Location</strong>
+                  <small>Lucknow, Uttar Pradesh, India</small>
+                </span>
+              </div>
+            </div>
 
-      <div className="contact-field">
-        <label htmlFor="contact-message">Message</label>
-        <textarea
-          id="contact-message"
-          rows={5}
-          placeholder="Tell me about your project or opportunity..."
-          value={contactForm.message}
-          onChange={(e) =>
-            setContactForm({
-              ...contactForm,
-              message: e.target.value,
-            })
-          }
-          required
-        />
-      </div>
+            <h4>Connect With Me</h4>
 
-      <button type="submit" className="contact-submit">
-        <FaPaperPlane />
-        Send Message
-      </button>
+            <div className="contact-socials">
+              <a
+                href="https://github.com/omprakashtnv"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <FaGithub />
+              </a>
 
-      <p className="contact-form-note">
-        Opens your default email application to send the message.
-      </p>
-    </form>
-  </div>
-</section>
+              <a
+                href="https://www.linkedin.com/in/om-gupta-coding/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+              >
+                <FaLinkedinIn />
+              </a>
+
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                aria-label="Email"
+                title="Email"
+              >
+                <FaEnvelope />
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT: CONTACT FORM */}
+
+          <form
+            className="contact-form"
+            onSubmit={handleContactSubmit}
+          >
+            <h3>Send Me a Message</h3>
+
+            <div className="contact-field">
+              <label htmlFor="contact-name">Your Name</label>
+              <input
+                id="contact-name"
+                type="text"
+                placeholder="Enter your name"
+                value={contactForm.name}
+                onChange={(e) =>
+                  setContactForm({
+                    ...contactForm,
+                    name: e.target.value,
+                  })
+                }
+                required
+              />
+            </div>
+
+            <div className="contact-field">
+              <label htmlFor="contact-email">Email Address</label>
+              <input
+                id="contact-email"
+                type="email"
+                placeholder="Enter your email"
+                value={contactForm.email}
+                onChange={(e) =>
+                  setContactForm({
+                    ...contactForm,
+                    email: e.target.value,
+                  })
+                }
+                required
+              />
+            </div>
+
+            <div className="contact-field">
+              <label htmlFor="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                rows={5}
+                placeholder="Tell me about your project or opportunity..."
+                value={contactForm.message}
+                onChange={(e) =>
+                  setContactForm({
+                    ...contactForm,
+                    message: e.target.value,
+                  })
+                }
+                required
+              />
+            </div>
+
+            <button type="submit" className="contact-submit">
+              <FaPaperPlane />
+              Send Message
+            </button>
+
+            <p className="contact-form-note">
+              Opens your default email application to send the message.
+            </p>
+          </form>
+        </div>
+      </section>
 
     </main>
   );
