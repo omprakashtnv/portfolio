@@ -338,7 +338,7 @@ const professionalSkills = [
 export default function Home() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
 
-  const CONTACT_EMAIL = "omprakash1997242@gmail.com";
+  const CONTACT_EMAIL = "omgupta.engineer@gmail.com";
 
   const [contactForm, setContactForm] = useState({
     name: "",
